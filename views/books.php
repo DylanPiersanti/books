@@ -1,23 +1,35 @@
-
-<?php 
-  $title = "Liste des livres";
-  ob_start(); 
+<?php
+$title = "Liste des livres";
+ob_start();
 ?>
 
-<ul>
-  <?php
-    foreach ($books as $book) {
-      ?>
-        <li><?php echo $book['title']; ?></li>
-      <?php
-    }
+<?php
+foreach ($books as $book) {
   ?>
-</ul>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="<?php echo $book['imageLink'] ?>" class="card-img" alt="<?php echo $book['title']; ?>">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $book['title']; ?></h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php
+}
+?>
 
-  <h1>Page books</h1>
+<h1>Page books</h1>
+
+
 
 
 <?php
-  $content = ob_get_clean();
-  require('public/index.php');
+$content = ob_get_clean();
+require('public/index.php');
 ?>
