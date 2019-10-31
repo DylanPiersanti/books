@@ -4,8 +4,6 @@
   ob_start(); 
 ?>
 
-<h1>Liste des livres</h1>
-
 <ul>
   <?php
     foreach ($books as $book) {
@@ -16,9 +14,8 @@
   ?>
 </ul>
 
-<pre>
-  <?php var_dump($books); ?>
-</pre>
+  <h1>Page books</h1>
+
 
 <?php
   $content = ob_get_clean();
