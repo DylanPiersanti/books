@@ -7,7 +7,8 @@
     <title><?php echo $title ?></title>
 
     <link rel="stylesheet" href="public/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/assets/style/style.css">
+    <link rel="stylesheet" href="public/assets/style/css/style.css">
+    <link rel="stylesheet" href="public/assets/style/css/all.min.css">
 
 </head>
 
@@ -15,7 +16,7 @@
 
     <!-- Contenu présent sur toutes les pages -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">myBooks.fr</a>
+        <a class="navbar-brand fas fa-book-reader" href="#"> myBooks.fr</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,7 +56,13 @@
 
     <script src="public/assets/jquery/jquery.min.js"></script>
     <script src="public/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+        $(document).ready(function () {
+            setTimeout(function() {
+                $('.titleHeader').fadeIn(20000).removeClass('hidden');
+            }, 5000);
+        });
+    </script>
 </body>
 
 </html>

@@ -10,14 +10,14 @@ ob_start();
 
     <header>
         <div class="overlay"></div>
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted">
+            <source src="public/assets/video/background.mp4" type="video/mp4">
         </video>
         <div class="container h-100">
             <div class="d-flex h-100 text-center align-items-center">
                 <div class="w-100 text-white">
-                    <h1 class="display-3">Bienvenue</h1>
-                    <p class="lead mb-0">sur myBooks.fr</p>
+                    <h1 class="display-3 hidden titleHeader">Bienvenue</h1>
+                    <p class="lead mb-0 hidden titleHeader">sur myBooks.fr</p>
                 </div>
             </div>
         </div>
@@ -25,20 +25,36 @@ ob_start();
 
     <br /><br />
 
-    <!-- Project One -->
+
+
+    <!-- Last book -->
     <div class="row">
         <div class="col-md-7">
+
+            <?php
+            $lastBook = end($books); // last book of Json list.
+            if ($lastBook['language'] = "French") {
+                $lastBook['language'] = '<i> Francais</i>';
+            }
+            ?>
+                
             <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+                <img data-toggle="modal" data-target="#exampleModal" class="lastBookImg img-fluid mb-3 mb-md-0 btn" src="<?php echo $lastBook['imageLink'] ?>" alt="">
             </a>
         </div>
-        <div class="col-md-5">
-            <h3>Project One</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-            <a class="btn btn-primary" href="#">View Project</a>
+        <div class="col-md-5 lastBookCard">
+            <h2><?php echo $lastBook['title'] ?></h2>
+            <h4 class="fas fa-pencil-alt"><i> <?php echo $lastBook['author'] ?></i></h4>
+            <ul style="display: block;">
+                <li class="fa fa-flag"><?php echo $lastBook['language'] ?></li>
+                <li class="fa fa-globe"> <?php echo $lastBook['country'] ?></li>
+                <li class="fas fa-calendar-alt"> <?php echo $lastBook['year'] ?></li>
+                <li class="fas fa-book"> <?php echo $lastBook['pages'] . " pages" ?></li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam.</p>
+            <a class="btn btn-primary" href="<?php echo $lastBook['link'] ?>">Découvrir</a>
         </div>
     </div>
-    <!-- /.row -->
 
     <section class="pricing py-5">
         <div class="container">
@@ -118,6 +134,27 @@ ob_start();
         <small>Copyright &copy; Your Website</small>
     </div>
 </footer>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><?php echo $lastBook['title'] ?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="<?php echo $lastBook['imageLink'] ?>" width="100%"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <?php
 $content = ob_get_clean();
