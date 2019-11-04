@@ -1,5 +1,5 @@
 body {
-    background-color: #363636;
+    background-color: #1e3233;
 }
 
 .error-template {
@@ -20,11 +20,17 @@ body {
     color: #fff
 }
 
+.navbar {
+    background-color: #006270 !important;
+    border-bottom: #009394;
+    height: 80px;
+}
+
 header {
     position: relative;
     background-color: black;
     height: 75vh;
-    min-height: 25rem;
+    height: 25rem;
     width: 100%;
     overflow: hidden;
 }
@@ -83,4 +89,25 @@ header .overlay {
 
 .lastBookCard {
     color: #fff;
+}
+
+.randomImage {
+    width: 100%;
+}
+.card {
+    height:100%;
+}
+
+.randomLink {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+#sticky-footer {
+    background-color: #006270 !important;
+}
+
+.btn-primary {
+    background-color: #009394 !important;
 }

@@ -1,4 +1,4 @@
-<?php header('refresh:5; ?action=home'); 
+<?php header('refresh:5; ./'); 
 ?>
 <?php $title = 'Page not found'; ?>
 <?php ob_start(); ?>

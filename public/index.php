@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title><?php echo $title ?></title>
+    <title>Mybooks - <?php echo $title ?></title>
 
     <link rel="stylesheet" href="public/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/assets/style/css/style.css">
@@ -15,7 +15,7 @@
 <body>
 
     <!-- Contenu présent sur toutes les pages -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand fas fa-book-reader" href="#"> myBooks.fr</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lien1</a>
+                    <a class="nav-link" href="?action=books">Les livres</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,10 +54,16 @@
     <?php echo $content ?>
     <!-- contenu dynamique -->
 
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; myBooks.fr</small>
+        </div>
+    </footer>
+
     <script src="public/assets/jquery/jquery.min.js"></script>
     <script src="public/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             setTimeout(function() {
                 $('.titleHeader').fadeIn(20000).removeClass('hidden');
             }, 5000);

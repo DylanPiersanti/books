@@ -34,10 +34,20 @@ ob_start();
             <?php
             $lastBook = end($books); // last book of Json list.
             if ($lastBook['language'] = "French") {
-                $lastBook['language'] = '<i> Francais</i>';
+                $lastBook['language'] = ' Francais';
             }
+
+            $numberA = rand(0, 99);
+            $bookA = $books[$numberA];
+
+            $numberB = rand(0, 99);
+            $bookB = $books[$numberB];
+
+            $numberC = rand(0, 99);
+            $bookC = $books[$numberC];
+
             ?>
-                
+
             <a href="#">
                 <img data-toggle="modal" data-target="#exampleModal" class="lastBookImg img-fluid mb-3 mb-md-0 btn" src="<?php echo $lastBook['imageLink'] ?>" alt="">
             </a>
@@ -61,22 +71,19 @@ ob_start();
             <div class="row">
                 <!-- Free Tier -->
                 <div class="col-lg-4">
-                    <div class="card mb-5 mb-lg-0">
+                    <div class="card mb-5 mb-lg-0 ">
                         <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
-                            <h6 class="card-price text-center">$0<span class="period">/month</span></h6>
+                            <h5 class="card-title text-muted text-uppercase text-center"><?php echo $bookA['title']; ?></h5>
+                            <img class="randomImage" src="<?php echo $bookA['imageLink'] ?>" />
                             <hr>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited Private Projects</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+                                <li><span class="fa-li"><i class="fas fa-flag"></i></span><?php echo $bookA['language']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-calendar-alt"></i></span><?php echo $bookA['year']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-globe"></i></span><?php echo $bookA['country']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-book"></i></span><?php echo $bookA['pages']; ?></li>
                             </ul>
-                            <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                            <br /><br />
+                            <a href="<?php echo $bookA['link']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
                         </div>
                     </div>
                 </div>
@@ -84,41 +91,36 @@ ob_start();
                 <div class="col-lg-4">
                     <div class="card mb-5 mb-lg-0">
                         <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Plus</h5>
-                            <h6 class="card-price text-center">$9<span class="period">/month</span></h6>
+                            <h5 class="card-title text-muted text-uppercase text-center"><?php echo $bookB['title'] ?></h5>
+                            <img class="randomImage" src="<?php echo $bookB['imageLink'] ?>" />
                             <hr>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Users</strong></li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Free Subdomain</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+                                <li><span class="fa-li"><i class="fas fa-flag"></i></span><?php echo $bookB['language']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-calendar-alt"></i></span><?php echo $bookB['year']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-globe"></i></span><?php echo $bookB['country']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-book"></i></span><?php echo $bookB['pages']; ?></li>
                             </ul>
-                            <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                            <br /><br />
+                            <a href="<?php echo $bookB['link']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
                         </div>
                     </div>
                 </div>
+                    
                 <!-- Pro Tier -->
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
-                            <h6 class="card-price text-center">$49<span class="period">/month</span></h6>
+                            <h5 class="card-title text-muted text-uppercase text-center"><?php echo $bookC['title'] ?></h5>
+                            <img class="randomImage" src="<?php echo $bookC['imageLink'] ?>" />
                             <hr>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited Users</strong></li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>150GB Storage</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited</strong> Free Subdomains</li>
-                                <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li>
+                                <li><span class="fa-li"><i class="fas fa-flag"></i></span><?php echo $bookC['language']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-calendar-alt"></i></span><?php echo $bookC['year']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-globe"></i></span><?php echo $bookC['country']; ?></li>
+                                <li><span class="fa-li"><i class="fas fa-book"></i></span><?php echo $bookC['pages']; ?></li>
                             </ul>
-                            <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                            <br /><br />
+                            <a href="<?php echo $bookC['link']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
                         </div>
                     </div>
                 </div>
@@ -128,12 +130,6 @@ ob_start();
 
 </div>
 <!-- /.container -->
-
-<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-    <div class="container text-center">
-        <small>Copyright &copy; Your Website</small>
-    </div>
-</footer>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -145,7 +141,7 @@ ob_start();
                 </button>
             </div>
             <div class="modal-body">
-                <img src="<?php echo $lastBook['imageLink'] ?>" width="100%"/>
+                <img src="<?php echo $lastBook['imageLink'] ?>" width="100%" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
