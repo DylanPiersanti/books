@@ -62,7 +62,7 @@ ob_start();
                 <li class="fas fa-book"> <?php echo $lastBook['pages'] . " pages" ?></li>
             </ul>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam.</p>
-            <a class="btn btn-primary" href="<?php echo $lastBook['link'] ?>">Découvrir</a>
+            <a class="btn btn-primary" href="?action=book&id=<?php echo $lastBook['id'] ?>">Découvrir</a>
         </div>
     </div>
 
@@ -83,7 +83,7 @@ ob_start();
                                 <li><span class="fa-li"><i class="fas fa-book"></i></span><?php echo $bookA['pages']; ?></li>
                             </ul>
                             <br /><br />
-                            <a href="<?php echo $bookA['link']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
+                            <a href="?action=book&id=<?php echo $bookB['id']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@ ob_start();
                                 <li><span class="fa-li"><i class="fas fa-book"></i></span><?php echo $bookB['pages']; ?></li>
                             </ul>
                             <br /><br />
-                            <a href="<?php echo $bookB['link']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
+                            <a href="?action=book&id=<?php echo $bookB['id']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ ob_start();
                                 <li><span class="fa-li"><i class="fas fa-book"></i></span><?php echo $bookC['pages']; ?></li>
                             </ul>
                             <br /><br />
-                            <a href="<?php echo $bookC['link']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
+                            <a href="?action=book&id=<?php echo $bookB['id']; ?>" class="btn btn-block btn-primary text-uppercase randomLink">Découvrir</a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,8 @@ ob_start();
                 <img src="<?php echo $lastBook['imageLink'] ?>" width="100%" />
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a href="?action=book&id=<?php echo $bookB['id']; ?>" type="button" class="btn btn-primary" data-dismiss="modal">Découvrir</a>
             </div>
         </div>
     </div>

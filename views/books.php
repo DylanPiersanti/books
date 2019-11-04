@@ -10,7 +10,13 @@ foreach ($books as $book) {
 ?>
 
 <?php
+  $countBooks = count($books);
+  $nbBooks = 10;
+  $currentPage = 1;
 
+  
+
+  var_dump($countBooks);
 ?>
 
 
