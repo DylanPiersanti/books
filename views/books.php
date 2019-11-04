@@ -11,12 +11,17 @@ foreach ($books as $book) {
 
 <?php
   $countBooks = count($books);
-  $nbBooks = 10;
+  $perPage = 10;
   $currentPage = 1;
 
-  
+  $gfr = $perPage * ($currentPage - 1);
 
-  var_dump($countBooks);
+  $nbPages = ceil($countBooks/$perPage);
+
+
+  var_dump($nbPages);
+
+
 ?>
 
 
