@@ -23,24 +23,25 @@ ob_start();
 
     <?php
     }
-    
+
     ?>
 
   </div>
 
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mt-5">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link active" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
+      <?php
+      for ($i = 1; $i <= $maxPages; $i++) {
+        if ($i == $page) {
+          echo "<li class='page-item disabled'><a class='page-link' href='#'>" . $i . "</a></li>";
+        } else {
+          echo "<li class='page-item'><a class='page-link' href='?action=books&page=" . $i . "'>" . $i . "</a></li>";
+        }
+      }
+      ?>
     </ul>
   </nav>
+
 
 
 </div>

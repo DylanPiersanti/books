@@ -1,11 +1,20 @@
 <?php
 require('models/books.php');
 
-function listBooks()
+function listBooks($page)
 {
-  $books = getbooks();
+  global $perPage;
+  $totalBooks = countBooks();
+  $maxPages = ceil($totalBooks / $perPage);
+  if ($page > $maxPages) {
+    $page = 0;
+  }
+  $start = ($page - 1) * $perPage;
+  $books = getbooks((string) $start);
   require('views/books.php');
 }
+
+
 
 function showBook($id)
 {

@@ -9,7 +9,8 @@ if (!isset($_GET['action'])) {
   switch ($action) {
     case "books":
       require_once('controllers/books.php');
-      listBooks();
+      $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+      listBooks($page);
       break;
     case "book":
       if (isset($_GET['id'])) {

@@ -1,5 +1,6 @@
 <?php
-  
+  require_once('utils/db.php');
+
   function getBooks() 
   {
     $file = file_get_contents('json/books.json');
