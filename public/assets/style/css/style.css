@@ -111,3 +111,10 @@ header .overlay {
 .btn-primary {
     background-color: #009394 !important;
 }
+
+.discoverButton {
+    width: 100%;
+    left:0;
+    position: absolute;
+    bottom:0;
+}
