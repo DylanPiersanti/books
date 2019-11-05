@@ -94,8 +94,9 @@ header .overlay {
 .randomImage {
     width: 100%;
 }
+
 .card {
-    height:100%;
+    height: 100%;
 }
 
 .randomLink {
@@ -114,7 +115,7 @@ header .overlay {
 
 .discoverButton {
     width: 100%;
-    left:0;
+    left: 0;
     position: absolute;
-    bottom:0;
+    bottom: 0;
 }

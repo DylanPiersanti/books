@@ -1,6 +1,18 @@
 <?php
 require_once('utils/db.php');
 
+function testBook($id) {
+  $db = dbConnect();
+  $stmt = $db->prepare('SELECT
+  * FROM books
+  WHERE author = :id
+  ');
+  $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+  $stmt->execute();
+
+  return $stmt->fetch();
+}
+
 $perPage = 8;
 
 function countBooks(): int
