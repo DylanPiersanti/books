@@ -25,7 +25,7 @@ function countBooks(): int
   return $totalBooksReq->rowCount();
 }
 
-function getBooks(string $start): array 
+function getBooks(string $start, $sort): array 
 {
   global $perPage;
 
@@ -37,6 +37,7 @@ function getBooks(string $start): array
     FROM books as b 
     LEFT JOIN authors as a
     ON b.author_id = a.id
+    ORDER BY ' . $sort. '
     LIMIT :strt, :perPage
   ');
 
