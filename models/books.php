@@ -18,11 +18,6 @@ function selectAuthors($id) {
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-
-
-
-
 function countBooks(): int
 {
   $db = dbConnect();
