@@ -3,9 +3,7 @@ $title = $book['title'];
 ob_start();
 ?>
 
-<?php echo $book['title'] ?>
-
-<div class="container">
+<div class="container mt-5">
 
     <div class="jumbotron text-center hoverable p-4">
         <div class="row">
@@ -40,22 +38,25 @@ ob_start();
     </div>
 
     <div class="row">
+    <?php
+    foreach ($booksAuthor as $book) {
+      ?>
         <div class="col-sm-3">
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="<?php echo $book['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Titre</h5>
+                    <h5 class="card-title"><?php echo $book['title'] ?></h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary discoverButton">Découvrir</a>
                 </div>
             </div>
         </div>
+        <?php
+        }
+        ?>
     </div>
 
-
 </div>
-
-<br /><br />
 
 <?php
 $content = ob_get_clean();

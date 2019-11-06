@@ -19,6 +19,7 @@ function listBooks($page)
 function showBook($id)
 {
   $book = getBook($id);
+  $booksAuthor = selectAuthors($book['author_id']);
   require('views/currentBook.php');
 }
 ?>
