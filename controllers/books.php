@@ -5,7 +5,7 @@ function listBooks()
 {
   global $perPage;
   $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-  $sort = isset($_GET['sort']) ? $_GET['sort'] : 'title';
+  $sort = isset($_GET['sort']) ? $_GET['sort'] : 'author';
 
   $totalBooks = countBooks();
   $maxPages = ceil($totalBooks / $perPage);
