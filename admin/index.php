@@ -1,6 +1,6 @@
 <?php
 require_once('../utils/db.php');
-require('../utils/adminReq.php');
+require_once('../utils/adminReq.php');
 ?>
 
 
@@ -21,10 +21,47 @@ require('../utils/adminReq.php');
 
 <body>
 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand fas fa-book-reader"  href="#"> Administration</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <?php
+              foreach($bookResult as $book){
+            ?>
+              <a class="dropdown-item" href="#">
+                <?php echo $book['title']; ?>
+              </a>
+            <?php
+              }
+            ?>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
     <div class="jumbotron">
-      <form class="text-center p-5" action="./" method="post">
+      <h2 style="text-align: center;"><?php echo !isset($bookResult) ? "Ajouter un livre" : "EDITER :" . $bookResult['title']; ?></h2>
+      <form class="text-center p-5" action="./<?php echo isset($bookResult) ? '?id=' . $bookResult['id'] : ''; ?>" method="post">
 
         <div class="form-row mb-4">
           <div class="col-md-7">
@@ -75,7 +112,7 @@ require('../utils/adminReq.php');
         <div class="form-row mb-4">
           <div class="col-md-7">
             <!-- book wikipedia link -->
-            <input value="<?php echo isset($bookResult) ? $bookResult['wikipedia_link'] : ''; ?>"type="text" name="wikiLink" id="wikipedia_link" class="form-control" placeholder="Lien de la page wikipedia" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+            <input value="<?php echo isset($bookResult) ? $bookResult['wikipedia_link'] : ''; ?>" type="text" name="wikiLink" id="wikipedia_link" class="form-control" placeholder="Lien de la page wikipedia" aria-describedby="defaultRegisterFormPhoneHelpBlock">
           </div>
           <div class="col">
             <!-- book year -->
@@ -90,7 +127,7 @@ require('../utils/adminReq.php');
         <!-- book description -->
         <div class="form-group green-border-focus">
           <textarea class="form-control" id="description" name="bookDesc" placeholder="Description du livre" rows="3">
-          <?php echo isset($bookResult) ? $bookResult['description'] : ''; ?>
+            <?php echo isset($bookResult) ? $bookResult['description'] : ''; ?>
           </textarea>
         </div>
 
@@ -100,6 +137,7 @@ require('../utils/adminReq.php');
         </div>
 
         <!-- Submit button -->
+        <input type="hidden" value="<?php echo isset($bookResult) ? $bookResult['id'] : ''; ?>" name="id">
         <button name="submit" class="btn btn-info my-4 btn-block" type="submit">Confirmer</button>
 
       </form>

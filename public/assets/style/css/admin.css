@@ -1,10 +1,14 @@
 
 body {
   background-color: #1e3233;
-  color: #fff;
 }
 
 .container {
   margin-top: 140px;
 }
 
+.navbar {
+  background-color: #006270 !important;
+  border-bottom: #009394;
+  height: 80px;
+}
