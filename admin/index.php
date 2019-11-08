@@ -43,9 +43,9 @@ require_once('../utils/adminReq.php');
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <?php
-              foreach($bookResult as $book){
+              foreach($bookList as $book){
             ?>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="?id=<?php echo $book['author_id'] ?>">
                 <?php echo $book['title']; ?>
               </a>
             <?php

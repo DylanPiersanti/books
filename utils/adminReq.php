@@ -100,4 +100,8 @@ if ($id){
 
 }
 
+  $stmtList = $db->prepare('SELECT * FROM books');
+  $stmtList->execute();
+  $bookList = $stmtList->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
